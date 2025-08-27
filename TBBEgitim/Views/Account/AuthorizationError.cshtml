@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "AuthorizationError";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="alert alert-danger" role="alert" style="text-align: center; margin-top: 15%">
+    <h3>
+        Bu sayfaya erişim izniniz yok. Lütfen yetkili bir kullanıcı ile giriş yapın.
+    </h3>
+    <h3>
+        Geri dönmek için <a href="@Url.Action("Anasayfa", "Giriş")" class="alert-link">anasayfaya</a> tıklayın.
+    </h3>
+</div>
+

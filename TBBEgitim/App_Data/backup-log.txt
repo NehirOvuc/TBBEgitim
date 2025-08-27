@@ -1,0 +1,5 @@
+[OK] Backup alındı: C:\TBBEgitim\TBBEgitim\App_Data\Backup\sifreler-backup-20250821-150251.txt - 21.08.2025 15:02:51
+[OK] Backup alındı: C:\TBBEgitim\TBBEgitim\App_Data\Backup\sifreler-backup-20250821-150338.txt - 21.08.2025 15:03:38
+[OK] Backup alındı: C:\TBBEgitim\TBBEgitim\App_Data\Backup\sifreler-backup-20250821-150500.txt - 21.08.2025 15:05:00
+[OK] Backup alındı: C:\TBBEgitim\TBBEgitim\App_Data\Backup\sifreler-backup-20250822-093709.txt - 22.08.2025 09:37:09
+[OK] Backup alındı: C:\TBBEgitim\TBBEgitim\App_Data\Backup\sifreler-backup-20250827-093700.txt - 27.08.2025 09:37:00

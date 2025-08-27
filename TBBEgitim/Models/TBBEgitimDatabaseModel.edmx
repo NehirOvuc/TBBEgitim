@@ -1,0 +1,374 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TBBEgitimDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Basvurular">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kategoriId" Type="int" Nullable="false" />
+          <Property Name="egitimId" Type="int" />
+          <Property Name="basvuruDurumId" Type="int" />
+          <Property Name="cinsiyetId" Type="int" />
+          <Property Name="ad" Type="nvarchar" MaxLength="50" />
+          <Property Name="soyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="tcNo" Type="nvarchar" MaxLength="11" />
+          <Property Name="dogumYeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="dogumTarihi" Type="date" />
+          <Property Name="nufusaKayitliYer" Type="nvarchar" MaxLength="50" />
+          <Property Name="meslek" Type="nvarchar" MaxLength="150" />
+          <Property Name="meslekOdasi" Type="nvarchar" MaxLength="150" />
+          <Property Name="sicilNo" Type="nvarchar" MaxLength="15" />
+          <Property Name="vergiDairesi" Type="nvarchar" MaxLength="150" />
+          <Property Name="vergiNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="temelUzmanlikAlani" Type="nvarchar" MaxLength="500" />
+          <Property Name="altUzmanlikAlani" Type="nvarchar" MaxLength="500" />
+          <Property Name="unvan" Type="nvarchar" MaxLength="150" />
+          <Property Name="ogrenimDuzeyiId" Type="int" />
+          <Property Name="universiteId" Type="int" />
+          <Property Name="bolum" Type="nvarchar" MaxLength="250" />
+          <Property Name="mezuniyetTarihi" Type="date" />
+          <Property Name="diplomaNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="yabanciDil1" Type="nvarchar" MaxLength="50" />
+          <Property Name="yabanciDilSeviyeId1" Type="int" />
+          <Property Name="yabanciDil2" Type="nvarchar" MaxLength="50" />
+          <Property Name="yabanciDilSeviyeId2" Type="int" />
+          <Property Name="yabanciDil3" Type="nvarchar" MaxLength="50" />
+          <Property Name="yabanciDilSeviyeId3" Type="int" />
+          <Property Name="adres" Type="nvarchar" MaxLength="500" />
+          <Property Name="ilId" Type="int" />
+          <Property Name="postaKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="eposta" Type="nvarchar" MaxLength="50" />
+          <Property Name="gsm" Type="nvarchar" MaxLength="15" />
+          <Property Name="tel" Type="nvarchar" MaxLength="15" />
+          <Property Name="referansNo" Type="nvarchar" MaxLength="10" />
+          <Property Name="kayitTarihi" Type="datetime" />
+          <Property Name="ip" Type="nvarchar" MaxLength="15" />
+          <Property Name="aktif" Type="bit" />
+          <Property Name="kabul" Type="bit" />
+          <Property Name="ucret" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="faturaBasildiMi" Type="bit" />
+          <Property Name="faturaNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="faturaTarihi" Type="datetime" />
+          <Property Name="faturaReferansNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="sertifikaHakki" Type="bit" />
+          <Property Name="sertifikaBasimTarihi" Type="date" />
+          <Property Name="sertifikaNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="odeme" Type="bit" />
+          <Property Name="odemeTarihi" Type="datetime" />
+          <Property Name="dekontNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="odemeSekliId" Type="int" />
+          <Property Name="iadeTutari" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="iadeTarihi" Type="datetime" />
+          <Property Name="eskiId" Type="int" />
+          <Property Name="eskiEgitimId" Type="int" />
+          <Property Name="kurumsalFatura" Type="bit" />
+          <Property Name="firmaAdi" Type="nvarchar" MaxLength="500" />
+          <Property Name="firmaAdi2" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'TBBEgitimDb.dbo.City' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Egitimler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kategoriId" Type="int" Nullable="false" />
+          <Property Name="egitimAdi" Type="nvarchar" MaxLength="500" />
+          <Property Name="egitimTipId" Type="int" />
+          <Property Name="egitimDurumId" Type="int" />
+          <Property Name="aciklama" Type="nvarchar" MaxLength="500" />
+          <Property Name="baslangicTarihi" Type="date" />
+          <Property Name="bitisTarihi" Type="date" />
+          <Property Name="tarihAciklama" Type="nvarchar" MaxLength="500" />
+          <Property Name="saatAraligi" Type="nvarchar" MaxLength="500" />
+          <Property Name="saat" Type="int" />
+          <Property Name="egitimYeri" Type="nvarchar" MaxLength="500" />
+          <Property Name="ilId" Type="int" />
+          <Property Name="kontenjan" Type="int" />
+          <Property Name="ucret" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="avUcret" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="digerUcret" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="sertifika" Type="nvarchar" MaxLength="50" />
+          <Property Name="kayitTarihi" Type="datetime" />
+          <Property Name="aktif" Type="bit" />
+          <Property Name="eskiId" Type="nvarchar" MaxLength="150" />
+          <Property Name="sertifikaEgitimAdi" Type="nvarchar" MaxLength="500" />
+          <Property Name="sertifikaEgitimTipi" Type="nvarchar" MaxLength="250" />
+          <Property Name="avukat" Type="bit" />
+          <Property Name="ilbazli" Type="bit" />
+          <Property Name="gorunurluk" Type="bit" />
+        </EntityType>
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kategoriAdi" Type="nvarchar" MaxLength="250" />
+          <Property Name="sanalPosUygulamaId" Type="int" Nullable="false" />
+          <Property Name="webSite" Type="nvarchar" MaxLength="50" />
+          <Property Name="anaKategoriId" Type="int" />
+        </EntityType>
+        <EntityContainer Name="TBBEgitimDbModelStoreContainer">
+          <EntitySet Name="Basvurular" EntityType="Self.Basvurular" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Egitimler" EntityType="Self.Egitimler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TBBEgitimDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Basvurular">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kategoriId" Type="Int32" Nullable="false" />
+          <Property Name="egitimId" Type="Int32" />
+          <Property Name="basvuruDurumId" Type="Int32" />
+          <Property Name="cinsiyetId" Type="Int32" />
+          <Property Name="ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="tcNo" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="dogumYeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dogumTarihi" Type="DateTime" Precision="0" />
+          <Property Name="nufusaKayitliYer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="meslek" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="meslekOdasi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="sicilNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="vergiDairesi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="vergiNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="temelUzmanlikAlani" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="altUzmanlikAlani" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="unvan" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ogrenimDuzeyiId" Type="Int32" />
+          <Property Name="universiteId" Type="Int32" />
+          <Property Name="bolum" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="mezuniyetTarihi" Type="DateTime" Precision="0" />
+          <Property Name="diplomaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="yabanciDil1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="yabanciDilSeviyeId1" Type="Int32" />
+          <Property Name="yabanciDil2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="yabanciDilSeviyeId2" Type="Int32" />
+          <Property Name="yabanciDil3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="yabanciDilSeviyeId3" Type="Int32" />
+          <Property Name="adres" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ilId" Type="Int32" />
+          <Property Name="postaKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="eposta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="gsm" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="tel" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="referansNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="kayitTarihi" Type="DateTime" Precision="3" />
+          <Property Name="ip" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="aktif" Type="Boolean" />
+          <Property Name="kabul" Type="Boolean" />
+          <Property Name="ucret" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="faturaBasildiMi" Type="Boolean" />
+          <Property Name="faturaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="faturaTarihi" Type="DateTime" Precision="3" />
+          <Property Name="faturaReferansNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sertifikaHakki" Type="Boolean" />
+          <Property Name="sertifikaBasimTarihi" Type="DateTime" Precision="0" />
+          <Property Name="sertifikaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="odeme" Type="Boolean" />
+          <Property Name="odemeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="dekontNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="odemeSekliId" Type="Int32" />
+          <Property Name="iadeTutari" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="iadeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="eskiId" Type="Int32" />
+          <Property Name="eskiEgitimId" Type="Int32" />
+          <Property Name="kurumsalFatura" Type="Boolean" />
+          <Property Name="firmaAdi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="firmaAdi2" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Egitimler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kategoriId" Type="Int32" Nullable="false" />
+          <Property Name="egitimAdi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="egitimTipId" Type="Int32" />
+          <Property Name="egitimDurumId" Type="Int32" />
+          <Property Name="aciklama" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="baslangicTarihi" Type="DateTime" Precision="0" />
+          <Property Name="bitisTarihi" Type="DateTime" Precision="0" />
+          <Property Name="tarihAciklama" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="saatAraligi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="saat" Type="Int32" />
+          <Property Name="egitimYeri" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ilId" Type="Int32" />
+          <Property Name="kontenjan" Type="Int32" />
+          <Property Name="ucret" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="avUcret" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="digerUcret" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="sertifika" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kayitTarihi" Type="DateTime" Precision="3" />
+          <Property Name="aktif" Type="Boolean" />
+          <Property Name="eskiId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="sertifikaEgitimAdi" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="sertifikaEgitimTipi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="avukat" Type="Boolean" />
+          <Property Name="ilbazli" Type="Boolean" />
+          <Property Name="gorunurluk" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="Kategoriler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kategoriAdi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="sanalPosUygulamaId" Type="Int32" Nullable="false" />
+          <Property Name="webSite" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="anaKategoriId" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="TBBEgitimDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Basvurular" EntityType="Self.Basvurular" />
+          <EntitySet Name="Egitimler" EntityType="Self.Egitimler" />
+          <EntitySet Name="Kategoriler" EntityType="Self.Kategoriler" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TBBEgitimDbModelStoreContainer" CdmEntityContainer="TBBEgitimDbEntities">
+          <EntitySetMapping Name="Basvurular">
+            <EntityTypeMapping TypeName="TBBEgitimDbModel.Basvurular">
+              <MappingFragment StoreEntitySet="Basvurular">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="kategoriId" ColumnName="kategoriId" />
+                <ScalarProperty Name="egitimId" ColumnName="egitimId" />
+                <ScalarProperty Name="basvuruDurumId" ColumnName="basvuruDurumId" />
+                <ScalarProperty Name="cinsiyetId" ColumnName="cinsiyetId" />
+                <ScalarProperty Name="ad" ColumnName="ad" />
+                <ScalarProperty Name="soyad" ColumnName="soyad" />
+                <ScalarProperty Name="tcNo" ColumnName="tcNo" />
+                <ScalarProperty Name="dogumYeri" ColumnName="dogumYeri" />
+                <ScalarProperty Name="dogumTarihi" ColumnName="dogumTarihi" />
+                <ScalarProperty Name="nufusaKayitliYer" ColumnName="nufusaKayitliYer" />
+                <ScalarProperty Name="meslek" ColumnName="meslek" />
+                <ScalarProperty Name="meslekOdasi" ColumnName="meslekOdasi" />
+                <ScalarProperty Name="sicilNo" ColumnName="sicilNo" />
+                <ScalarProperty Name="vergiDairesi" ColumnName="vergiDairesi" />
+                <ScalarProperty Name="vergiNo" ColumnName="vergiNo" />
+                <ScalarProperty Name="temelUzmanlikAlani" ColumnName="temelUzmanlikAlani" />
+                <ScalarProperty Name="altUzmanlikAlani" ColumnName="altUzmanlikAlani" />
+                <ScalarProperty Name="unvan" ColumnName="unvan" />
+                <ScalarProperty Name="ogrenimDuzeyiId" ColumnName="ogrenimDuzeyiId" />
+                <ScalarProperty Name="universiteId" ColumnName="universiteId" />
+                <ScalarProperty Name="bolum" ColumnName="bolum" />
+                <ScalarProperty Name="mezuniyetTarihi" ColumnName="mezuniyetTarihi" />
+                <ScalarProperty Name="diplomaNo" ColumnName="diplomaNo" />
+                <ScalarProperty Name="yabanciDil1" ColumnName="yabanciDil1" />
+                <ScalarProperty Name="yabanciDilSeviyeId1" ColumnName="yabanciDilSeviyeId1" />
+                <ScalarProperty Name="yabanciDil2" ColumnName="yabanciDil2" />
+                <ScalarProperty Name="yabanciDilSeviyeId2" ColumnName="yabanciDilSeviyeId2" />
+                <ScalarProperty Name="yabanciDil3" ColumnName="yabanciDil3" />
+                <ScalarProperty Name="yabanciDilSeviyeId3" ColumnName="yabanciDilSeviyeId3" />
+                <ScalarProperty Name="adres" ColumnName="adres" />
+                <ScalarProperty Name="ilId" ColumnName="ilId" />
+                <ScalarProperty Name="postaKodu" ColumnName="postaKodu" />
+                <ScalarProperty Name="eposta" ColumnName="eposta" />
+                <ScalarProperty Name="gsm" ColumnName="gsm" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="referansNo" ColumnName="referansNo" />
+                <ScalarProperty Name="kayitTarihi" ColumnName="kayitTarihi" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="aktif" ColumnName="aktif" />
+                <ScalarProperty Name="kabul" ColumnName="kabul" />
+                <ScalarProperty Name="ucret" ColumnName="ucret" />
+                <ScalarProperty Name="faturaBasildiMi" ColumnName="faturaBasildiMi" />
+                <ScalarProperty Name="faturaNo" ColumnName="faturaNo" />
+                <ScalarProperty Name="faturaTarihi" ColumnName="faturaTarihi" />
+                <ScalarProperty Name="faturaReferansNo" ColumnName="faturaReferansNo" />
+                <ScalarProperty Name="sertifikaHakki" ColumnName="sertifikaHakki" />
+                <ScalarProperty Name="sertifikaBasimTarihi" ColumnName="sertifikaBasimTarihi" />
+                <ScalarProperty Name="sertifikaNo" ColumnName="sertifikaNo" />
+                <ScalarProperty Name="odeme" ColumnName="odeme" />
+                <ScalarProperty Name="odemeTarihi" ColumnName="odemeTarihi" />
+                <ScalarProperty Name="dekontNo" ColumnName="dekontNo" />
+                <ScalarProperty Name="odemeSekliId" ColumnName="odemeSekliId" />
+                <ScalarProperty Name="iadeTutari" ColumnName="iadeTutari" />
+                <ScalarProperty Name="iadeTarihi" ColumnName="iadeTarihi" />
+                <ScalarProperty Name="eskiId" ColumnName="eskiId" />
+                <ScalarProperty Name="eskiEgitimId" ColumnName="eskiEgitimId" />
+                <ScalarProperty Name="kurumsalFatura" ColumnName="kurumsalFatura" />
+                <ScalarProperty Name="firmaAdi" ColumnName="firmaAdi" />
+                <ScalarProperty Name="firmaAdi2" ColumnName="firmaAdi2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Egitimler">
+            <EntityTypeMapping TypeName="TBBEgitimDbModel.Egitimler">
+              <MappingFragment StoreEntitySet="Egitimler">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="kategoriId" ColumnName="kategoriId" />
+                <ScalarProperty Name="egitimAdi" ColumnName="egitimAdi" />
+                <ScalarProperty Name="egitimTipId" ColumnName="egitimTipId" />
+                <ScalarProperty Name="egitimDurumId" ColumnName="egitimDurumId" />
+                <ScalarProperty Name="aciklama" ColumnName="aciklama" />
+                <ScalarProperty Name="baslangicTarihi" ColumnName="baslangicTarihi" />
+                <ScalarProperty Name="bitisTarihi" ColumnName="bitisTarihi" />
+                <ScalarProperty Name="tarihAciklama" ColumnName="tarihAciklama" />
+                <ScalarProperty Name="saatAraligi" ColumnName="saatAraligi" />
+                <ScalarProperty Name="saat" ColumnName="saat" />
+                <ScalarProperty Name="egitimYeri" ColumnName="egitimYeri" />
+                <ScalarProperty Name="ilId" ColumnName="ilId" />
+                <ScalarProperty Name="kontenjan" ColumnName="kontenjan" />
+                <ScalarProperty Name="ucret" ColumnName="ucret" />
+                <ScalarProperty Name="avUcret" ColumnName="avUcret" />
+                <ScalarProperty Name="digerUcret" ColumnName="digerUcret" />
+                <ScalarProperty Name="sertifika" ColumnName="sertifika" />
+                <ScalarProperty Name="kayitTarihi" ColumnName="kayitTarihi" />
+                <ScalarProperty Name="aktif" ColumnName="aktif" />
+                <ScalarProperty Name="eskiId" ColumnName="eskiId" />
+                <ScalarProperty Name="sertifikaEgitimAdi" ColumnName="sertifikaEgitimAdi" />
+                <ScalarProperty Name="sertifikaEgitimTipi" ColumnName="sertifikaEgitimTipi" />
+                <ScalarProperty Name="avukat" ColumnName="avukat" />
+                <ScalarProperty Name="ilbazli" ColumnName="ilbazli" />
+                <ScalarProperty Name="gorunurluk" ColumnName="gorunurluk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategoriler">
+            <EntityTypeMapping TypeName="TBBEgitimDbModel.Kategoriler">
+              <MappingFragment StoreEntitySet="Kategoriler">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="kategoriAdi" ColumnName="kategoriAdi" />
+                <ScalarProperty Name="sanalPosUygulamaId" ColumnName="sanalPosUygulamaId" />
+                <ScalarProperty Name="webSite" ColumnName="webSite" />
+                <ScalarProperty Name="anaKategoriId" ColumnName="anaKategoriId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

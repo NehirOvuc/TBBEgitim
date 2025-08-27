@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "Eğitimler";
+}
+@model List<TBBEgitim.Models.EgitimViewModel>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.4/css/buttons.dataTables.css" />
+<link rel="stylesheet" href="~/Styles/dataStil.css" />
+<main aria-labelledby="egitimler">
+    <h2 id="egitimler">@ViewBag.Title</h2>
+    <div class="table-responsive">
+        <table class="table table-striped" id="egitimlerTable" style="overflow-x:auto;">
+            <thead id="tablo-başlık">
+                <tr>
+                    <th>Kategori</th>
+                    <th>Eğitim Adı</th>
+                    <th>Açıklama</th>
+                    <th>Başlangıç Tarihi</th>
+                    <th>Bitiş Tarihi</th>
+                    <th>Eğitim İli</th>
+                    <th>Eğitim Yeri</th>
+                    <th>Kontenjan</th>
+                    <th>Kalan Kontenjan</th>
+                    <th>Ücret</th>
+                    <th>Avukat Ücreti</th>
+                    <th>Eğitim Durumu</th>
+                </tr>
+            </thead>
+            <tbody class="tablo-içerik">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.KategoriAdi</td>
+                        <td>@item.EgitimAdi</td>
+                        <td>@item.Aciklama</td>
+                        <td data-order="@(item.BaslangicTarihi != null ? ((DateTime)item.BaslangicTarihi).ToString("yyyy-MM-dd") : "")">
+                            @(item.BaslangicTarihi != null ? ((DateTime)item.BaslangicTarihi).ToString("dd.MM.yyyy") : "")
+                        </td>
+                        <td data-order="@(item.BitisTarihi != null ? ((DateTime)item.BitisTarihi).ToString("yyyy-MM-dd") : "")">
+                            @(item.BitisTarihi != null ? ((DateTime)item.BitisTarihi).ToString("dd.MM.yyyy") : "")
+                        </td>
+                        <td>@item.IlId</td>
+                        <td>@item.EgitimYeri</td>
+                        <td>@item.Kontenjan</td>
+                        <td>@item.KalanKontenjan</td>
+                        <td data-order="@(item.Ucret ?? 0)">
+                            @(item.Ucret != null ? $"{item.Ucret:N0} TL" : "Ücretsiz")
+                        </td>
+                        <td data-order="@(item.AvUcret ?? 0)">
+                            @(item.AvUcret != null ? $"{item.AvUcret:N0} TL" : "Ücretsiz")
+                        </td>
+                        <td>@item.EgitimDurumu</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.4/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.4/js/buttons.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.4/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.4/js/buttons.print.min.js"></script>
+    <script>
+        var table = new DataTable('#egitimlerTable', {
+            layout: {
+                topStart: {
+                    buttons: ['excel', 'pdf']
+                }
+            },
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/2.3.2/i18n/tr.json',
+            },
+        });
+    </script>
+
+}
+
+

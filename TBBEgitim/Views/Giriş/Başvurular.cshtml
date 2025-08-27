@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Başvurular";
+}
+@model List<TBBEgitim.Models.BasvuruViewModel>
+<link rel="stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.2.4/css/buttons.dataTables.css" />
+<link rel="stylesheet" href="~/Styles/dataStil.css" />
+<main aria-labelledby="basvurular">
+    <h2 id="basvurular">@ViewBag.Title</h2>
+    <div class="table-responsive">
+        <table class="table table-striped" id="basvurularTable">
+           <thead id="tablo-başlık">
+                <tr>
+                    <th>Kategori</th>
+                    <th>Eğitim</th>
+                    <th>Cinsiyet</th>
+                    <th>Ad</th>
+                    <th>Soyad</th>
+                    <th>TC No</th>
+                    <th>Mail Adresi</th>
+                </tr>
+            </thead>
+            <tbody class="tablo-içerik">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.KategoriAdi</td>
+                        <td>@item.EgitimAdi</td>
+                        <td>
+                            @(item.CinsiyetId == 1 ? "Erkek" :
+                                  item.CinsiyetId == 2 ? "Kadın" :
+                                  "Belirtilmemiş")
+                        </td>
+                        <td>@item.Ad</td>
+                        <td>@item.Soyad</td>
+                        <td>@item.TcNo</td>
+                        <td>@item.Eposta</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="https://cdn.datatables.net/2.3.2/js/dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.4/js/dataTables.buttons.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.4/js/buttons.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.4/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.4/js/buttons.print.min.js"></script>
+    <script>
+        var table = new DataTable('#basvurularTable', {
+            layout: {
+                topStart: {
+                    buttons: ['excel', 'pdf']
+                }
+            },
+            language: {
+                url: '//cdn.datatables.net/plug-ins/2.3.2/i18n/tr.json',
+            },
+        });
+    </script>
+}

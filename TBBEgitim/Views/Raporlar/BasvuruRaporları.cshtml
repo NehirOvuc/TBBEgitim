@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewBag.Title = "BaşvuruRaporları";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model TBBEgitim.Models.BasvuruRaporlariViewModel
+
+<h2>Başvuru Raporları</h2>
+<div style="gap:8%;">
+    <div id="cinsiyeteGoreBasvuru" style="width: 45%; height: 300px; display: inline-block;"></div>
+    <div id="egitimeGoreBasvuru" style="width: 45%; height: 300px; display: inline-block;"></div>
+    <div id="katGoreBasvuru" style="width: 45%; height: 300px; display: inline-block;"></div>
+</div>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script>
+    google.charts.load('current', { packages: ['corechart'] });
+    google.charts.setOnLoadCallback(drawCharts);
+
+    function drawCharts() {
+        // Başvuru raporu verilerini hazırlama
+        var cinsiyetChartData = [['Cinsiyet', 'Sayı']];
+        @foreach (var item in Model.CinsiyetRaporlari)
+        {
+            @:cinsiyetChartData.push(['@item.Cinsiyet', @item.BasvuruSayisi]);
+        }
+        var cinsiyetData = google.visualization.arrayToDataTable(cinsiyetChartData);
+        var cinsOptions = {
+            title: 'Cinsiyetlere Göre Başvuru Sayısı',
+            pieHole: 0,
+            backgroundColor: '#F8F9FA'
+        };
+        var yasaChart = new google.visualization.PieChart(document.getElementById('cinsiyeteGoreBasvuru'));
+        yasaChart.draw(cinsiyetData, cinsOptions);
+
+        //
+        var egitimChartData = [['Eğitim Adı', 'Başvuru Sayısı']];
+        @foreach (var item in Model.BasvurulanEgitimRaporlari)
+        {
+            @:egitimChartData.push(['@Html.Raw(item.EgitimAdi)', @item.BasvuruSayisi]);
+        }
+        var egitimData = google.visualization.arrayToDataTable(egitimChartData);
+        var egitimOptions = {
+            title: 'Eğitimlere Göre Başvuru Sayısı',
+            pieHole: 0,
+            backgroundColor: '#F8F9FA'
+        };
+        var egitimChart = new google.visualization.PieChart(document.getElementById('egitimeGoreBasvuru'));
+        egitimChart.draw(egitimData, egitimOptions);
+        //
+        var katChartData = new google.visualization.DataTable();
+        katChartData.addColumn('string', 'Kategori');
+        katChartData.addColumn('number', 'Toplam Başvuru');
+
+        @foreach (var item in Model.BasvurulanKategoriRaporlari)
+        {
+            @:katChartData.addRow(['@Html.Raw(item.KategoriAdi)', @item.BasvuruSayisi]);
+        }
+
+        var katOptions = {
+            title: 'Basvurulan Kategoriler',
+            bars: 'horizontal',
+            chartArea: {width: '50%'},
+            hAxis: {
+                title: 'Kategorilere Göre Basvurular',
+                minValue: 0
+            },
+            vAxis: {
+                title: 'Kategoriler'
+            },
+            colors: ['#4285F4'],
+            backgroundColor: '#F8F9FA'
+            //isStacked: true
+        };
+
+        var katChart = new google.visualization.BarChart(document.getElementById('katGoreBasvuru'));
+        katChart.draw(katChartData, katOptions);
+    }
+</script>

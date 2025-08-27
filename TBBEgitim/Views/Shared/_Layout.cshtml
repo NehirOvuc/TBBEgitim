@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - TBB Eğitim</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="~/Styles/stil1.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="sidebar" id="yan-cubuk">
+        <div class="başlık">
+            <a href="@Url.Action("Anasayfa", "Giriş")" class="navbar-brand">
+                <img id="tbb-logo" src="~/Styles/Images/tbb-logo.png" alt="TBB Logo" />
+            </a>
+        </div>
+        <div class="menu">
+            <ul class="navbar-nav flex-grow-1">
+                <li>@Html.ActionLink("Eğitimler", "Eğitimler", "Giriş", new { area = "" }, new { @class = "nav-link" })</li>
+                <li>@Html.ActionLink("Başvurular", "Başvurular", "Giriş", new { area = "" }, new { @class = "nav-link" })</li>
+                <li>@Html.ActionLink("Kategoriler", "Kategoriler", "Giriş", new { area = "" }, new { @class = "nav-link" })</li>
+                <li class="nav-item dropdown" style="position: inherit">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Raporlar
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="@Url.Action("EgitimRaporları", "Raporlar")">Eğitim Raporları</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("BasvuruRaporları", "Raporlar")">Başvuru Raporları</a></li>
+                    </ul>
+                </li>
+                @if (Session["User"].ToString() == System.Configuration.ConfigurationManager.AppSettings["superAdmin"])
+                {
+                    <li class="nav-item dropdown" style="position: inherit">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Yönetici Paneli
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="@Url.Action("AdminPanel", "Account")">Kullanıcı Ekleme</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("LogData", "Account")">Yedekleme Kayıtları</a></li>
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="orta" id="orta">
+
+        <div class="d-flex align-items-center">
+            <button type="button" class="btn btn-primary" onclick="toggleSidebar()" id="menu-button"> ☰ Menü </button>
+            <a href="@Url.Action("Logout", "Account")" class="ms-auto text-decoration-none text-dark me-3 d-flex align-items-center"  style="width: 4%">
+                <i class="fa-solid fa-arrow-right-from-bracket fa-2x"></i>
+            </a>
+        </div>
+
+        @RenderBody()
+        <footer class="text-center text-muted py-4 border-top mt-4" style="background-color: #D8D8D8">
+            <div class="container">
+                <p class="mb-1">Author: Nehir Övüç</p>
+                <p class="mb-0">
+                    Visit: <a href="https://lms.barobirlik.org.tr/" target="_blank" class="text-decoration-none">Türkiye Barolar Birliği Öğrenme Yönetim Sistemi</a>
+                </p>
+                <p class="social">
+                    <a href="https://x.com/barolar" target="_blank" title="X"><i class="fa-brands fa-twitter" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/tbbtv/?sub_confirmation=1" target="_blank" title="Youtube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com/company/barobirlik" target="_blank" title="Linkedin"> <i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/barobirlik/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                </p>
+                <p class="mt-3 mb-0">&copy; @DateTime.Now.Year - TBB Eğitim</p>
+            </div>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<script>
+    function toggleSidebar() {
+        const sidebar = document.getElementById("yan-cubuk");
+        const main = document.getElementById("orta");
+
+        if (sidebar.style.display === "none" || sidebar.style.width === "0%") {
+            sidebar.style.width = "12%";
+            main.style.marginLeft = "12%";
+        }
+        else {
+            sidebar.style.width = "0%";
+            main.style.marginLeft = "0%";
+        }
+    }
+</script>
