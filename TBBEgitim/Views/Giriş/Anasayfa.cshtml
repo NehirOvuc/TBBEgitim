@@ -1,7 +1,48 @@
 ﻿@{
     ViewBag.Title = "Anasayfa";
 }
-<main aria-labelledby="title">
-    <h2 id="title">@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
+
+<link rel="stylesheet" href="~/Styles/Giris/anasayfaStyle.css" />
+
+<main>
+    <img id="tbb-building" src="~/Styles/Images/Turkiye Barolar Birligi.jpg" />
+
+    <!-- Tablolar -->
+    <section class="dashboard-section">
+        <h2 class="dashboard-title">📊 Tablolar</h2>
+        <div class="dashboard-cards">
+            <div class="dashboard-card">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <h4>Eğitimler</h4>
+                <a href="@Url.Action("Eğitimler", "Giriş")">Listeye Git</a>
+            </div>
+            <div class="dashboard-card">
+                <i class="fa-solid fa-file-signature"></i>
+                <h4>Başvurular</h4>
+                <a href="@Url.Action("Başvurular", "Giriş")">Listeye Git</a>
+            </div>
+            <div class="dashboard-card">
+                <i class="fa-solid fa-layer-group"></i>
+                <h4>Kategoriler</h4>
+                <a href="@Url.Action("Kategoriler", "Giriş")">Listeye Git</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Raporlar -->
+    <section class="dashboard-section">
+        <h2 class="dashboard-title">📑 Raporlar</h2>
+        <div class="dashboard-cards">
+            <div class="dashboard-card">
+                <i class="fa-solid fa-chart-line"></i>
+                <h4>Eğitim Raporları</h4>
+                <a href="@Url.Action("EgitimRaporları", "Raporlar")">Raporu Gör</a>
+            </div>
+            <div class="dashboard-card">
+                <i class="fa-solid fa-clipboard-list"></i>
+                <h4>Başvuru Raporları</h4>
+                <a href="@Url.Action("BasvuruRaporları", "Raporlar")">Raporu Gör</a>
+            </div>
+        </div>
+    </section>
 </main>

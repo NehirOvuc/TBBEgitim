@@ -8,7 +8,6 @@ namespace TBBEgitim.Controllers
 {
     public class ErrorController : BaseController
     {
-        // GET: Error
         public ActionResult NotFound()
         {
             Response.StatusCode = 404;

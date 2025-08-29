@@ -4,32 +4,8 @@
     ViewBag.Title = "Login";
     var siteKey = System.Configuration.ConfigurationManager.AppSettings["RecaptchaSiteKey"];
 }
-<style>
-    .gradient-custom {
-        /*        background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));*/
-        background-color: #FECB60;
-    }
 
-    /* Kartı küçült ve ortala */
-    .login-card {
-        max-width: 400px; /* kutu genişliği küçültüldü */
-        margin: auto; /* ortala */
-    }
-
-    /* Inputları ortalı ve daha güzel görünmesi için */
-    .form-control {
-        text-align: center; /* yazıyı ortala */
-    }
-
-    .btn-login {
-        width: 100%; /* buton tam genişlik */
-    }
-
-    .d-flex justify-content-center {
-        width: 100%;
-    }
-</style>
-
+<link rel="stylesheet" href="~/Styles/Account/loginStyle.css" />
 <section class="vh-100 gradient-custom d-flex align-items-center">
     <div class="container">
         <div class="login-card card bg-dark text-white rounded-3 shadow-lg">

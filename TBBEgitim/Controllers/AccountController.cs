@@ -18,7 +18,7 @@ namespace TBBEgitim.Controllers
     {
         public ActionResult Login()
         {
-            //session var mı
+            //Session var mı
             if (Session["User"] != null)
             {
                 return RedirectToAction("Anasayfa", "Giriş");
@@ -54,7 +54,7 @@ namespace TBBEgitim.Controllers
                 return View();
             }
             var recaptchaToken = Request["g-recaptcha-response"];
-            // Captcha
+            // Captcha kontrolü
             if (!RecaptchaHelper.Validate(recaptchaToken))
             {
                 ViewBag.Error = "Lütfen reCAPTCHA doğrulamasını tamamlayın.";
@@ -81,14 +81,14 @@ namespace TBBEgitim.Controllers
         [HttpPost]
         public ActionResult AdminPanel(string username, string password)
         {
-            //Boş mu
+            //Kullanıcı adı veya şifre boş mu
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
                 ViewBag.Error = "Kullanıcı adı veya şifre boş olamaz.";
                 return View();
             }
 
-            //Kullanıcı adında boşluk var mı?
+            //Kullanıcı adında boşluk var mı
             if (username.Contains(" "))
             {
                 ViewBag.Error = "Kullanıcı adında boşluk olamaz.";
@@ -102,7 +102,7 @@ namespace TBBEgitim.Controllers
             }
             var lines = System.IO.File.ReadAllLines(Server.MapPath("~/App_Data/sifreler.txt"));
 
-            //Kullanıcı adı ve şifreyi kontrol
+            //Kullanıcı adı ve şifre doğru mu
             var nonValidUser = (lines.Select(line => line.Split(' ')).Any(parts => parts[0] == username));
 
             if (nonValidUser)
@@ -110,6 +110,7 @@ namespace TBBEgitim.Controllers
                 ViewBag.Error = "Bu kullanıcı adı zaten var!";
                 return View();
             }
+
             // Şifreyi hashle
             var hashedPassword = BitConverter
                 .ToString(SHA256HashHelper.ComputeSHA256Hash(password))
@@ -128,8 +129,11 @@ namespace TBBEgitim.Controllers
         {
             return View();
         }
+
+
         public ActionResult LogData()
         {
+            //bu sayfaya sadece superadmin erişebilir
             if (Session["User"].ToString() != ConfigurationManager.AppSettings["superAdmin"])
             {
                 return RedirectToAction("AuthorizationError");
@@ -139,6 +143,7 @@ namespace TBBEgitim.Controllers
 
             var logs = new List<BackupLog>();
 
+            //dosyayı gerektiği gibi ayır
             if (System.IO.File.Exists(logPath)){
                 var lines = System.IO.File.ReadAllLines(logPath);
                 var regex = new Regex(@"Backup\\(.*?) - (\d{2}\.\d{2}\.\d{4}) (\d{2}:\d{2}):\d{2}");

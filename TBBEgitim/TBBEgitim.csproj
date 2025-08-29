@@ -251,11 +251,14 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Styles\dataStil.css" />
-    <Content Include="Styles\Images\power-button.png" />
+    <Content Include="Styles\Account\adminPanelStyle.css" />
+    <Content Include="Styles\Account\loginStyle.css" />
+    <Content Include="Styles\Tablolar\tabloStyle.css" />
+    <Content Include="Styles\Giris\anasayfaStyle.css" />
     <Content Include="Styles\Images\tbb-logo.png" />
-    <Content Include="Styles\notFoundStyle.css" />
-    <Content Include="Styles\stil1.css" />
+    <Content Include="Styles\Images\Turkiye Barolar Birligi.jpg" />
+    <Content Include="Styles\Error\notFoundStyle.css" />
+    <Content Include="Styles\layoutStyle.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

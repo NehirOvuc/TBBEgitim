@@ -8,6 +8,7 @@ namespace TBBEgitim.Controllers
 {
     public class BaseController : Controller
     {
+        //giriş yapmadan hiçbir sayfaya erişim yapılamaz
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             if (Session["User"] == null &&

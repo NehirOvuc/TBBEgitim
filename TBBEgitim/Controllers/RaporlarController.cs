@@ -10,6 +10,7 @@ namespace TBBEgitim.Controllers
     public class RaporlarController : BaseController
     {
         private readonly TBBEgitimDbEntities db = new TBBEgitimDbEntities();
+        //raporları listeleyecek actionlar
         public ActionResult EgitimRaporları()
         {
             var kategoriRaporu = (from e in db.Egitimler

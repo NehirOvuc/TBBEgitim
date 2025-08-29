@@ -20,6 +20,7 @@ namespace TBBEgitim.Controllers
 
         public ActionResult Eğitimler()
         {
+            //eğitimler tablosu için düzenleme
             var egitimler = (from e in db.Egitimler
                              join k in db.Kategoriler on e.kategoriId equals k.id
                              join b in db.Basvurular on e.id equals b.egitimId into basvuruGrubu
@@ -48,6 +49,7 @@ namespace TBBEgitim.Controllers
 
         public ActionResult Başvurular()
         {
+            //başvurular tablosu için düzenleme
             var basvurular = (from b in db.Basvurular
                               join e in db.Egitimler on b.egitimId equals e.id
                               join k in db.Kategoriler on e.kategoriId equals k.id
@@ -70,12 +72,6 @@ namespace TBBEgitim.Controllers
         public ActionResult Kategoriler(string search = "") {
             var db = new TBBEgitim.Models.TBBEgitimDbEntities();
             var kategoriler = db.Kategoriler.ToList();
-
-            if (!string.IsNullOrEmpty(search))
-            {
-                string searchLower = search.ToLower();
-                kategoriler = kategoriler.Where(e => e.kategoriAdi.ToLower().Contains(searchLower)).ToList();
-            }
 
             ViewBag.Kategoriler = kategoriler;
 

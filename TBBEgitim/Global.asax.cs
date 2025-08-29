@@ -31,10 +31,10 @@ namespace TBBEgitim
                 .WithIdentity("backup-sifreler")
                 .Build();
 
-            // Trigger tanımı (her gün 15:00 Türkiye saatiyle)
+            // (her gün 15:00 Türkiye saatiyle backup al)
             ITrigger trigger = TriggerBuilder.Create()
                 .WithIdentity("backup-sifreler-trigger")
-                .WithCronSchedule("0 37 09 * * ?", x => x.InTimeZone(TimeZoneInfo.FindSystemTimeZoneById("Turkey Standard Time")))
+                .WithCronSchedule("0 00 15 * * ?", x => x.InTimeZone(TimeZoneInfo.FindSystemTimeZoneById("Turkey Standard Time")))
                 .Build();
 
             _scheduler.ScheduleJob(job, trigger);
